@@ -10,4 +10,5 @@ public interface CertificateService {
     CertificateDTO getCertificateById(Integer id);
     CertificateDTO updateCertificate(Integer id, CertificateDTO CertificateDTO);
     void deleteCertificate(Integer id);
+	List<CertificateDTO> getCertificateByCategories(String categoryName);
 }

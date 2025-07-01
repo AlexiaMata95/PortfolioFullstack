@@ -10,4 +10,5 @@ public interface SkillService {
     SkillDTO getSkillById(Integer id);
     SkillDTO updateSkill(Integer id, SkillDTO skillDTO);
     void deleteSkill(Integer id);
+    List<SkillDTO> getSkillsByCategories(String categoryName);
 }

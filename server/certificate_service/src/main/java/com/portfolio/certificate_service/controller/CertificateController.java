@@ -43,10 +43,15 @@ public class CertificateController {
         return ResponseEntity.ok(certificateService.updateCertificate(id, certificateDTO));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/id/{id}")
     public ResponseEntity<Void> deleteCertificate(@PathVariable Integer id) {
         certificateService.deleteCertificate(id);
         return ResponseEntity.noContent().build();
+    }
+    
+    @GetMapping("/categoryName/{categoryName}")
+    public ResponseEntity<List<CertificateDTO>> getByCategoryName(@PathVariable String categoryName){
+    	return ResponseEntity.ok(certificateService.getCertificateByCategories(categoryName));
     }
 
 }

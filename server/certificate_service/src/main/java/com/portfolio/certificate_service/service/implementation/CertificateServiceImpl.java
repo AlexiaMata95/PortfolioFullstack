@@ -73,4 +73,11 @@ public class CertificateServiceImpl implements CertificateService {
         certificateRepository.deleteById(id);
     }
     
+    public List<CertificateDTO> getCertificateByCategories(String nameCategory){
+    	return certificateRepository.findByCategories_Name(nameCategory)
+                .stream()
+                .map(this::entityToDto)
+                .collect(Collectors.toList());
+    }
+    
 }

@@ -1,5 +1,4 @@
 package com.portfolio.skill_service.service.implementation;
-
 import com.portfolio.skill_service.dto.SkillDTO;
 import com.portfolio.skill_service.entity.Category;
 import com.portfolio.skill_service.entity.Skill;
@@ -68,5 +67,12 @@ public class SkillServiceImpl implements SkillService {
     @Override
     public void deleteSkill(Integer id) {
         skillRepository.deleteById(id);
+    }
+    
+    public List<SkillDTO> getSkillsByCategories(String nameCategory){
+    	return skillRepository.findByCategories_Name(nameCategory)
+                .stream()
+                .map(this::entityToDto)
+                .collect(Collectors.toList());
     }
 }

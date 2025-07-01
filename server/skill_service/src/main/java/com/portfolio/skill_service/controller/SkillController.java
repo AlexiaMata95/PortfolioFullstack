@@ -48,5 +48,10 @@ public class SkillController {
         skillService.deleteSkill(id);
         return ResponseEntity.noContent().build();
     }
+    
+    @GetMapping("/byCategories/{categoryName}")
+    public ResponseEntity<List<SkillDTO>> getByCategoriesName(@PathVariable String categoryName){
+    	return ResponseEntity.ok(skillService.getSkillsByCategories(categoryName));
+    }
 
 }
